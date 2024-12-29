@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: times;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+}
+
+#image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+
+#man {
+    position: absolute;
+    cursor: grab;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-user-drag: none;
+}
+
+#man:active {
+    cursor: grabbing;
+}
+
+#info-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+#info {
+    cursor: pointer;
+    animation: blink 1.5s infinite alternate;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#title-container {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    z-index: 10;
+}
+
+#title {
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+#title:hover {
+    transform: rotate(5deg);
+}
+
+@keyframes tilt {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(#5afa6e, #bae84c, #f0dd3d, #b4e2b6, #9be4ed, #c6d2f2, #f7eef4);
+    opacity: 0.8;
+    animation: rainbow 5s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes rainbow {
+    0% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+@media (min-width: 769px) {
+    html, body {
+        height: 100%;
+        overflow: hidden;
+        touch-action: none;
+    }
+
+    #title-container {
+        top: 60%;
+        left: 62%;
+    }
+
+    #title {
+        width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    #image-container {
+        height: 60vh;
+        width: 100vw;
+    }
+
+    #man {
+        position: absolute;
+        width: 400px;
+        height: auto;
+    }
+
+    #title-container {
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #title {
+        width: 300px;
+        animation: tilt-right 2s infinite ease-in-out;
+    }
+    
+    @keyframes tilt-right {
+        0% {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(2deg); 
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+    
+    #info {
+        width: 200px;
+    }
+
+    body, html {
+        overflow: hidden;
+        height: 100%;
+    }
+}
