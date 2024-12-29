@@ -150,7 +150,7 @@ body {
     }
 
     #title {
-        width: 300px;
+        width: 280px;
         animation: tilt-right 2s infinite ease-in-out;
     }
     
