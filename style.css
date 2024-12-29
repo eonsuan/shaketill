@@ -150,19 +150,22 @@ body {
     }
 
     #title {
-        width: 280px;
-        animation: tilt-right 2s infinite ease-in-out;
+        width: 250px;
+        animation: tilt-bounce 2s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
     }
     
-    @keyframes tilt-right {
+    @keyframes tilt-bounce {
         0% {
-            transform: rotate(0deg);
+            transform: rotate(0deg) scale(1);
         }
-        50% {
-            transform: rotate(2deg); 
+        30% {
+            transform: rotate(3deg) scale(1.05); 
+        }
+        60% {
+            transform: rotate(-3deg) scale(0.98); 
         }
         100% {
-            transform: rotate(0deg);
+            transform: rotate(0deg) scale(1);
         }
     }
     
